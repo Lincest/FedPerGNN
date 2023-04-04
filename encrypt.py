@@ -1,11 +1,11 @@
-from Crypto import Random
+from crypto import Random
 from tqdm import tqdm
 import base64
-from Crypto.PublicKey import RSA 
-from Crypto.Signature import PKCS1_v1_5 as PKCS1_signature
-from Crypto.Cipher import PKCS1_v1_5 as PKCS1_cipher
-from Crypto.Cipher import PKCS1_OAEP
-from Crypto.Hash import SHA256
+from crypto.PublicKey import RSA 
+from crypto.Signature import PKCS1_v1_5 as PKCS1_signature
+from crypto.Cipher import PKCS1_v1_5 as PKCS1_cipher
+from crypto.Cipher import PKCS1_OAEP
+from crypto.Hash import SHA256
 
 
 def generate_key():
