@@ -4,7 +4,7 @@ DROP=0.2
 BATCH_SIZE=32
 HIS_LEN=100
 PSEUDO=1000
-NEIGHBOR_LEN=100
+NEIGHBOR_LEN=100 
 CLIP=0.1
 LR=0.01
 EPS=1
@@ -20,5 +20,5 @@ EPOCH=3
 # NEIGHBOR_LEN：邻居节点的数量。
 # CLIP：梯度裁剪的阈值。
 # LR：学习率，用于控制模型参数更新的速度。
-# EPS：Adam优化器中的epsilon值。
+# EPS：epsilon值。
 # EPOCH：训练轮数。

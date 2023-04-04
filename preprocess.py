@@ -14,7 +14,7 @@ def generate_history(Otraining):
         random.shuffle(user_history)  # 获取用户的交互项, 然后打乱
         user_history = user_history[:HIS_LEN]  # 利用训练参数中的HIS_LEN进行截断
         history.append(
-            user_history+[Otraining.shape[1]+2]*(HIS_LEN-len(user_history)))  # TODO: 加一项不知道是什么意思的东西?
+            user_history+[Otraining.shape[1]+2]*(HIS_LEN-len(user_history)))  # TODO: 如果HIS_LEN > 邻居列数, 那么就用邻居数 + 2来填充剩余部分 (为什么要用shape[1]+2填充啊?)
     history = np.array(history, dtype='int32')
     return history
 
