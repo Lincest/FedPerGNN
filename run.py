@@ -22,12 +22,12 @@ path_dataset = 'training_test_dataset.mat'
 
 
 def train(model):
-    for rounds in range(EPOCH):
+    for rounds in range(EPOCH): # 每一轮
         alluserembs = userembedding_layer.get_weights()[0]
-        # 消息传递的过程
+        # 消息传递的过程 
         user_neighbor_emb = graph_embedding_expansion(
             Otraining, usernei, alluserembs)
-        # 生成小批量
+        # 生成小批量 (多个batch)
         traingen = generate_batch_data_random(
             BATCH_SIZE, train_user_index, trainu, traini, usernei, trainlabel, user_neighbor_emb)
         cnt = 0
@@ -39,10 +39,10 @@ def train(model):
             now_weights = model.get_weights()
 
             sigma = np.std(now_weights[0]-layer_weights[0]) # 训练前后参数的标准差
-            # noise of pseudo interacted items
+            # noise of pseudo interacted items (伪交互采样)
             norm = np.random.normal(
                 0, sigma/np.sqrt(PSEUDO*BATCH_SIZE/now_weights[0].shape[0]), size=now_weights[0].shape)
-            now_weights[0] += norm  # L2-norm clip
+            now_weights[0] += norm  
             itemembedding_layer.set_weights([now_weights[0]])
             print(np.mean(batchloss))
             # ldp noise (local differential privacy, 局部差分隐私)

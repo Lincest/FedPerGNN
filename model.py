@@ -31,10 +31,10 @@ def get_model(Otraining, hidden=HIDDEN, dropout=DROP):
         Otraining.shape[1]+3, hidden, trainable=True)
 
     # Input: 初始化一个keras张量
-    userid_input = Input(shape=(1,), dtype='int32')
-    itemid_input = Input(shape=(1,), dtype='int32')
+    userid_input = Input(shape=(1,), dtype='int32') # user 信息
+    itemid_input = Input(shape=(1,), dtype='int32') # item 信息
+    ui_input = Input(shape=(HIS_LEN,), dtype='int32') # ui交互信息
 
-    ui_input = Input(shape=(HIS_LEN,), dtype='int32')
     neighbor_embedding_input = Input(
         shape=(HIS_LEN, NEIGHBOR_LEN, hidden), dtype='float32')
     mask_neighbor = Lambda(lambda x: K.cast(

@@ -16,7 +16,7 @@ EPOCH=3
 # DROP：dropout的概率，用于防止过拟合。
 # BATCH_SIZE：每个客户端在每轮训练中使用的样本数。
 # HIS_LEN：历史信息的长度。
-# PSEUDO：伪标签的数量。
+# PSEUDO：伪交互的数量
 # NEIGHBOR_LEN：邻居节点的数量。
 # CLIP：梯度裁剪的阈值。
 # LR：学习率，用于控制模型参数更新的速度。
